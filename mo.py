@@ -7,11 +7,11 @@ def metadata(filepath):
 
 def main():
     parser = argparse.ArgumentParser(description="MO, the Musicophile Owl", prog="mo")
-    parser.add_argument("--info", nargs=1, help="show information of an audio file")
+    parser.add_argument("--tags", nargs=1, help="show tags of an audio file")
     args = vars(parser.parse_args())
 
-    if(args["info"]):
-        metadata(args["info"][0])
+    if(args["tags"]):
+        metadata(args["tags"][0])
 
 if __name__ == "__main__":
     main()
