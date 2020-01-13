@@ -1,3 +1,5 @@
 # Virtual Environment directory
 /venv
 
+# MP3 audio files
+*.mp3
