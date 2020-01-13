@@ -1,17 +1,17 @@
 import argparse
 from mutagen.easyid3 import EasyID3
 
-def metadata(filepath):
+def metadata(option, filepath):
     audio = EasyID3(filepath)
-    print(f"{audio['artist'][0]} - {audio['title'][0]}")
+    print(f"{audio[option]}")
 
 def main():
     parser = argparse.ArgumentParser(description="MO, the Musicophile Owl", prog="mo")
-    parser.add_argument("--tags", nargs=1, help="show tags of an audio file")
+    parser.add_argument("--tags", nargs='+', help="show tags of an audio file")
     args = vars(parser.parse_args())
 
     if(args["tags"]):
-        metadata(args["tags"][0])
+        metadata(args["tags"][0], args["tags"][1])
 
 if __name__ == "__main__":
     main()
