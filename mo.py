@@ -1,6 +1,9 @@
 import sys
 from mutagen.easyid3 import EasyID3
 
+def version():
+    print("0.0.1")
+
 def tags(filepath):
     audio = EasyID3(filepath)
     brief_statement = f"artist: {audio['artist'][0]}\n"
@@ -13,14 +16,17 @@ def tags(filepath):
 
 def show(args):
     actions = {
-        "tags": tags
+        "tags": tags,
+        "version": version
     }
     if len(args) == 0:
         print("Show what, exactly?")
     else:
         action = args[0]
         if action in actions:
-            if len(args) == 2:
+            if len(args) == 1:
+                actions[action]()
+            elif len(args) == 2:
                 actions[action](args[1])
             else:
                 print("Show tags for which audio, exactly?")
