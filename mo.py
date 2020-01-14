@@ -5,11 +5,11 @@ def version(args):
     print("0.0.1")
 
 def tags(args):
-    if len(args) == 0:
+    if len(args) == 1:
         print("Show tags for which audio, exactly?")
         exit(1)
     else:
-        filepath = args[0]
+        filepath = args[1]
     audio = EasyID3(filepath)
     brief_statement = f"artist: {audio['artist'][0]}\n"
     brief_statement += f"title: {audio['title'][0]}\n"
@@ -29,7 +29,7 @@ def show(args):
     else:
         action = args[0]
         if action in actions:
-            actions[action](args[1:])
+            actions[action](args)
         else:
             print(f"I haven't been trained to show {action}.")
             exit(1)
