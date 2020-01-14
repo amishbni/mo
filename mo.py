@@ -10,7 +10,12 @@ def tags(args):
         exit(1)
     else:
         filepath = args[1]
-    audio = EasyID3(filepath)
+
+    try:
+        audio = EasyID3(filepath)
+    except Exception:
+        print("I can't read that audio, are you sure you provided the path correctly?")
+        exit(1)
     brief_statement = f"artist: {audio['artist'][0]}\n"
     brief_statement += f"title: {audio['title'][0]}\n"
     brief_statement += f"album: {audio['album'][0]}\n"
