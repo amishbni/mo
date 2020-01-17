@@ -1,8 +1,8 @@
-import sys
+import sys, github
 from mutagen.easyid3 import EasyID3
 
 def version(args):
-    print("0.0.1")
+    print(github.version())
 
 def tags(args):
     if len(args) == 1:
