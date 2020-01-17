@@ -3,3 +3,6 @@
 
 # MP3 audio files
 *.mp3
+
+# pycache directory
+/__pycache__
