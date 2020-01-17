@@ -31,6 +31,7 @@ def show(args):
     }
     if len(args) == 0:
         print("Show what, exactly?")
+        exit(1)
     else:
         action = args[0]
         if action in actions:
