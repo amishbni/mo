@@ -1,6 +1,7 @@
 altgraph==0.16.1
 certifi==2019.11.28
 chardet==3.0.4
+colorama==0.4.3
 idna==2.8
 mutagen==1.43.0
 PyInstaller==3.6
