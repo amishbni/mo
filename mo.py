@@ -7,7 +7,7 @@ def version(args):
 
 def tags(args):
     if len(args) == 1:
-        print(f"Show {Fore.BLUE}tags{Style.RESET_ALL} for which audio, exactly?")
+        print(f"Show {Fore.BLUE}{args[0]}{Style.RESET_ALL} for which audio, exactly?")
         exit(1)
     else:
         filepath = args[1]
@@ -28,6 +28,7 @@ def tags(args):
 def show(args):
     actions = {
         "tags": tags,
+        "artist": tags,
         "version": version
     }
     if len(args) == 0:
