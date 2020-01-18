@@ -2,6 +2,16 @@ import sys, github
 from mutagen.easyid3 import EasyID3
 from colorama import Fore, Style, init
 
+def latest(args):
+    if len(args) == 1:
+        print("Show latest what, exactly?")
+        exit(1)
+    else:
+       method = args[1]
+
+    if method == "version":
+        print(github.version())
+
 def version(args):
     print(github.version())
 
@@ -46,7 +56,8 @@ def show(args):
         "album": tags,
         "genre": tags,
         "date": tags,
-        "version": version
+        "version": version,
+        "latest": latest
     }
     if len(args) == 0:
         print("Show what, exactly?")
