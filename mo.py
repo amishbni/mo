@@ -37,16 +37,8 @@ def tags(args):
         brief_statement += f"date: {audio['date'][0]}"
 
         print(brief_statement)
-    elif method == "title":
-        print(audio["title"][0])
-    elif method == "artist":
-        print(audio["artist"][0])
-    elif method == "album":
-        print(audio["album"][0])
-    elif method == "genre":
-        print(audio["genre"][0])
-    elif method == "date":
-        print(audio["date"][0])
+    else:
+        print(audio[method][0])
 
 def show(args):
     actions = {
