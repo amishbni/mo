@@ -10,6 +10,7 @@ def tags(args):
         print(f"Show {Fore.BLUE}{args[0]}{Style.RESET_ALL} for which audio, exactly?")
         exit(1)
     else:
+        method = args[0]
         filepath = args[1]
 
     try:
@@ -17,18 +18,34 @@ def tags(args):
     except Exception:
         print("I can't read that audio, are you sure you provided the path correctly?")
         exit(1)
-    brief_statement = f"artist: {audio['artist'][0]}\n"
-    brief_statement += f"title: {audio['title'][0]}\n"
-    brief_statement += f"album: {audio['album'][0]}\n"
-    brief_statement += f"genre: {audio['genre'][0]}\n"
-    brief_statement += f"date: {audio['date'][0]}"
 
-    print(brief_statement)
+    if method == "tags":
+        brief_statement = f"artist: {audio['artist'][0]}\n"
+        brief_statement += f"title: {audio['title'][0]}\n"
+        brief_statement += f"album: {audio['album'][0]}\n"
+        brief_statement += f"genre: {audio['genre'][0]}\n"
+        brief_statement += f"date: {audio['date'][0]}"
+
+        print(brief_statement)
+    elif method == "title":
+        print(audio["title"][0])
+    elif method == "artist":
+        print(audio["artist"][0])
+    elif method == "album":
+        print(audio["album"][0])
+    elif method == "genre":
+        print(audio["genre"][0])
+    elif method == "date":
+        print(audio["date"][0])
 
 def show(args):
     actions = {
         "tags": tags,
         "artist": tags,
+        "title": tags,
+        "album": tags,
+        "genre": tags,
+        "date": tags,
         "version": version
     }
     if len(args) == 0:
