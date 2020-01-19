@@ -30,15 +30,19 @@ def tags(args):
         exit(1)
 
     if method == "tags":
-        brief_statement = f"artist: {audio['artist'][0]}\n"
-        brief_statement += f"title: {audio['title'][0]}\n"
-        brief_statement += f"album: {audio['album'][0]}\n"
-        brief_statement += f"genre: {audio['genre'][0]}\n"
-        brief_statement += f"date: {audio['date'][0]}"
-
-        print(brief_statement)
+        brief_statement = []
+        brief_tags = ["artist", "title", "album", "genre", "date"]
+        for tag in brief_tags:
+            try:
+                brief_statement.append(f"{Fore.BLUE}{tag}:{Style.RESET_ALL} {audio[tag][0]}")
+            except Exception:
+                brief_statement.append(f"{Fore.BLUE}{tag}:{Fore.RED} can't find it.{Style.RESET_ALL}")
+        print('\n'.join(brief_statement))
     else:
-        print(audio[method][0])
+        try:
+            print(audio[method][0])
+        except Exception:
+            print(f"I can't find {Fore.BLUE}{method}{Style.RESET_ALL} from that audio.")
 
 def show(args):
     actions = {
