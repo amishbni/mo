@@ -1,8 +1,10 @@
 altgraph==0.16.1
+beautifulsoup4==4.6.0
 certifi==2019.11.28
 chardet==3.0.4
 colorama==0.4.3
 idna==2.8
+lyricsgenius==1.8.2
 mutagen==1.43.0
 PyInstaller==3.6
 python-dateutil==2.8.1
